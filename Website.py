@@ -11,7 +11,8 @@ from pathlib import Path
 #with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
     #counties = json.load(response)
 
-
+app = dash.Dash(__name__)
+server = app.server
 
 file = Path('data/health_outcomes_df.csv')    
 data = pd.read_csv(file)
