@@ -6,10 +6,10 @@ import plotly.graph_objects as go
 import json
 import pandas as pd
 from pathlib import Path
-from urllib.request import urlopen
-import json
-with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
-    counties = json.load(response)
+#from urllib.request import urlopen
+#import json
+#with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    #counties = json.load(response)
 
 
 
