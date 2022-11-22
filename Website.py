@@ -255,7 +255,7 @@ def render_page_content(pathname):
             dbc.Container([
                 dbc.Row([
                     dbc.Col([
-                        dbc.Card([dbc.CardImg(src=actual_v_predicted_path),], style={"width": "30rem"},),
+                        #dbc.Card([dbc.CardImg(src=actual_v_predicted_path),], style={"width": "30rem"},),
                         dbc.Card([dbc.CardImg(src=accuracy_path),],style={"width": "30rem"},),
                     ]),
                     dbc.Col([
