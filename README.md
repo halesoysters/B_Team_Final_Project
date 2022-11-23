@@ -1,6 +1,9 @@
-# Final_Project
+# Final Project
 
-Topic: US Health
+## Topic: US Health & Cancer Rates
+
+![header](images/header.png)
+
 
 **See our dashboard hosted on Heroku [here](https://b-team-final.herokuapp.com/)** 
 
@@ -27,7 +30,7 @@ County population data was sourced from the [Social Explorer Market Profile Data
 
 ## Slides
 
-https://docs.google.com/presentation/d/15OZkmBjv44i-xoq12jIVcF1bP-0Hgk-oNm7jcBNWap8/edit?usp=sharing
+**[Here](https://docs.google.com/presentation/d/15OZkmBjv44i-xoq12jIVcF1bP-0Hgk-oNm7jcBNWap8/edit?usp=sharing)**
 
 ## Tools To Be Used:
 
