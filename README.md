@@ -2,7 +2,7 @@
 
 Topic: US Health
 
-** See our dashboard hosted on Heroku [here](https://b-team-final.herokuapp.com/) ** 
+**See our dashboard hosted on Heroku [here](https://b-team-final.herokuapp.com/)** 
 
 ## Reason Topic Was Selected:
 
