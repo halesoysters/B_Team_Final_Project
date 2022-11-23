@@ -2,6 +2,8 @@
 
 Topic: US Health
 
+** See our dashboard hosted on Heroku [here](https://b-team-final.herokuapp.com/) ** 
+
 ## Reason Topic Was Selected:
 
 Health is a topic that affects everyone.  We wanted to better understand how health metrics might differ by location.  The dataset for counties is large and encompases possible variables that may be related to one another. It also includes mapping components.

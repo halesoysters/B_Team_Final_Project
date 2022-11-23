@@ -217,11 +217,14 @@ def render_page_content(pathname):
     elif pathname == "/page-1":
         return [
             html.H1 ("Dashboard", style = {'textAlign':'center'}),
+            html.Br(),
+            html.P("By parsing the lattitude and longitude from the CDC data, we were able to use Plotly's Mapbox feature to visualize county population size and rates of cancer."),
+            html.Br(),
             dcc.Graph(figure = fig2),
             dcc.Input(id="zip-input", value="# Enter zip to update table below",
             size="30"),
             dcc.Graph(id = "zip-output"),  
-            
+            html.P("This Grapgh shows risk factors in the CDC data associated with cancer rates by population.")
             dcc.Graph(figure = fig9),   
 
 # Delete if we want to keep the existing map        
