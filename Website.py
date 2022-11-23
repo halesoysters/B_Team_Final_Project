@@ -11,8 +11,9 @@ from pathlib import Path
 #with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
     #counties = json.load(response)
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SANDSTONE])
 server = app.server
+server.wsgi_app = WhiteNoise(server.wsgi_app, root=os.path.join(os.path.dirname(__file__), "Assets"), prefix="Assets/",)
 
 file = Path('data/health_outcomes_df.csv')    
 data = pd.read_csv(file)
@@ -251,8 +252,6 @@ def render_page_content(pathname):
     elif pathname == "/page-3":
         return [
             html.H1("Machine Learning", style={'textAlign':'center'}),
-            dcc.Graph(figure = fig7),
-            dcc.Graph(figure = fig8),
             dbc.Container([
                 dbc.Row([
                     dbc.Col([
@@ -265,8 +264,9 @@ def render_page_content(pathname):
                         html.P("A multiple linear regression model will be used to predict cancer rate using the categorized health data as features. R-squared and P-values will be examined to determine effectiveness and confidence of the data's relationships. There is limiations that come with multiple linear regression. Linear regression is very sensitive to outliers and falsely concluding correlation is causation can occur. The benefit of this model is that many features can be used to predict the cancer rate, and it lets the strength of the relationship be assessed between each feature and the prediction."),
                         html.Br(),                        
                         html.P("The model predicts the percentage of population with cancer with a relatively low mean square error value, and an accuracy score above 90%.")
-                    ])
-                ])
+                    ]),
+            dcc.Graph(figure = fig7),
+            dcc.Graph(figure = fig8),    ])
             ])
         ]
 
