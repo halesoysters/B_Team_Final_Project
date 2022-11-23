@@ -6,6 +6,8 @@ import plotly.graph_objects as go
 import json
 import pandas as pd
 from pathlib import Path
+from whitenoise import WhiteNoise
+import os
 #from urllib.request import urlopen
 #import json
 #with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
