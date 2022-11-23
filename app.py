@@ -224,7 +224,7 @@ def render_page_content(pathname):
             dcc.Input(id="zip-input", value="# Enter zip to update table below",
             size="30"),
             dcc.Graph(id = "zip-output"),  
-            html.P("This Grapgh shows risk factors in the CDC data associated with cancer rates by population.")
+            html.P("This figure shows risk factors in the CDC data associated with cancer rates by population."),
             dcc.Graph(figure = fig9),   
 
 # Delete if we want to keep the existing map        
