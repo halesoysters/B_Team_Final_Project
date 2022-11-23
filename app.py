@@ -18,15 +18,13 @@ server = app.server
 server.wsgi_app = WhiteNoise(server.wsgi_app, root=os.path.join(os.path.dirname(__file__), "Assets"), prefix="Assets/",)
 
 file = Path('data/health_outcomes_df.csv')    
-data = pd.read_csv(file)
-county_df = data
-df = county_df[["CountyFIPS", "CANCER"]]
-df["CountyFIPS"] = df["CountyFIPS"].apply(str)
+df = pd.read_csv(file)
+df = df[["CountyFIPS", "CANCER"]]
 
 #Import data for mapping
 locationfile = Path('data/mapping_df.csv')  
 mapping_data = pd.read_csv(locationfile)
-mapping_df = county_df.merge(mapping_data, how="inner", on="CountyFIPS")
+mapping_df = df.merge(mapping_data, how="inner", on="CountyFIPS")
 
 #import data for interactiuve viz of health risks and cancer rates
 cancer_hr_df_file = Path('data/cancer_hr_df.csv')
@@ -52,17 +50,17 @@ feature_df_file = Path('data/feature_df.csv')
 feature_df = pd.read_csv(feature_df_file)
 
 # Image paths
-image_path = 'assets/correlation_matrix.png'
-accuracy_path = 'assets/Accuracy.png'
-actual_v_predicted_path = 'assets/actual_vs_predicted.png'
-graph_path = 'assets/Graph.png'
+image_path = 'Assets/correlation_matrix.png'
+accuracy_path = 'Assets/Accuracy.PNG'
+actual_v_predicted_path = 'Assets/actual_vs_predicted.png'
+graph_path = 'Assets/Graph.png'
 
 #import data for zip
 zip_file = Path('data/Zip_County_FIPS.csv')  
 zip_data = pd.read_csv(zip_file)
 
 
-app = dash.Dash(external_stylesheets=[dbc.themes.SANDSTONE])
+
 
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
@@ -254,6 +252,8 @@ def render_page_content(pathname):
     elif pathname == "/page-3":
         return [
             html.H1("Machine Learning", style={'textAlign':'center'}),
+            dcc.Graph(figure = fig7),
+            dcc.Graph(figure = fig8),
             dbc.Container([
                 dbc.Row([
                     dbc.Col([
@@ -266,9 +266,8 @@ def render_page_content(pathname):
                         html.P("A multiple linear regression model will be used to predict cancer rate using the categorized health data as features. R-squared and P-values will be examined to determine effectiveness and confidence of the data's relationships. There is limiations that come with multiple linear regression. Linear regression is very sensitive to outliers and falsely concluding correlation is causation can occur. The benefit of this model is that many features can be used to predict the cancer rate, and it lets the strength of the relationship be assessed between each feature and the prediction."),
                         html.Br(),                        
                         html.P("The model predicts the percentage of population with cancer with a relatively low mean square error value, and an accuracy score above 90%.")
-                    ]),
-            dcc.Graph(figure = fig7),
-            dcc.Graph(figure = fig8),    ])
+                    ])
+                ])
             ])
         ]
 
@@ -331,5 +330,6 @@ def render_page_content(pathname):
         ],
         className="p-3 bg-light rounded-3",
     )
+
 if __name__=='__main__':
-    app.run_server(port=8887)
+    app.run_server()
